@@ -1,0 +1,8 @@
+﻿<ul ng-repeat="employee in employees | orderBy:sortColumn:reverseSort |limitTo:rowlimit|filter:search">
+    <li>{{employee.name}}
+        <ul>
+            <li>{{employee.gender}}</li>
+            <li>{{employee.salary}}</li>
+        </ul>
+    </li>
+</ul>
