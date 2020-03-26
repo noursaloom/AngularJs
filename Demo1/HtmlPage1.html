@@ -1,0 +1,45 @@
+<!doctype html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="scripts/angular.min.js"></script>
+    <script src="Scripts/Script.js"></script>
+    <link href="Styles.css" rel="stylesheet" />
+</head>
+<body ng-app="myModule">
+    <div ng-controller="myController">
+        row to display: <input type="number" step="1" min="0" max="5" ng-model="rowlimit">
+
+        <br />
+        <br />
+        <table>
+            <thead>
+                <tr>
+                    <th ng-click="sortData('name')">
+                        name <div ng-class="getSortClass('name')"></div>
+                    </th>
+                    <th ng-click="sortData('dateOfbirth')">
+                        date of birth <div ng-class="getSortClass('dateOfbirth')"></div>
+                    </th>
+                    <th ng-click="sortData('gender')">
+                        gender <div ng-class="getSortClass('gender')"></div>
+                    </th>
+                    <th ng-click="sortData('salary')">
+                        salary <div ng-class="getSortClass('salary')"></div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="employee in employees | orderBy:sortColumn:reverseSort |limitTo:rowlimit">
+            <td> {{ employee.name }} </td>
+            <td> {{ employee.dateOfbirth | date:"dd/mm/yyyy" }} </td>
+            <td> {{ employee.gender }} </td>
+            <td> {{ employee.salary  }} </td>
+            </tr>
+            </tbody>
+            </table>
+
+</div>
+</body>
+</html>
