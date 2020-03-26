@@ -9,8 +9,9 @@
 </head>
 <body ng-app="myModule">
     <div ng-controller="myController">
-        row to display: <input type="number" step="1" min="0" max="5" ng-model="rowlimit">
-
+        Row to Display: <input type="number" step="1" min="0" max="5" ng-model="rowlimit">
+       Search: <input type="text" placeholder="search name and city" ng-model="searchText">
+     
         <br />
         <br />
         <table>
@@ -28,18 +29,22 @@
                     <th ng-click="sortData('salary')">
                         salary <div ng-class="getSortClass('salary')"></div>
                     </th>
+                    <th ng-click="sortData('city')">
+                        city <div ng-class="getSortClass('city')"></div>
+                    </th>
                 </tr>
             </thead>
             <tbody>
-            <tr ng-repeat="employee in employees | orderBy:sortColumn:reverseSort |limitTo:rowlimit">
-            <td> {{ employee.name }} </td>
-            <td> {{ employee.dateOfbirth | date:"dd/mm/yyyy" }} </td>
-            <td> {{ employee.gender }} </td>
-            <td> {{ employee.salary  }} </td>
-            </tr>
+                <tr ng-repeat="employee in employees | orderBy:sortColumn:reverseSort |limitTo:rowlimit|filter:search">
+                    <td> {{ employee.name }} </td>
+                    <td> {{ employee.dateOfbirth | date:"dd/mm/yyyy" }} </td>
+                    <td> {{ employee.gender }} </td>
+                    <td> {{ employee.salary  }} </td>
+                    <td> {{ employee.city }} </td>
+                </tr>
             </tbody>
-            </table>
+        </table>
 
-</div>
+    </div>
 </body>
 </html>
