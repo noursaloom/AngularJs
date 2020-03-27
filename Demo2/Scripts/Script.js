@@ -1,9 +1,17 @@
 ﻿var app = angular
     .module("myModule", [])
-    .controller("myController", function ($scope, $http) {
+    .controller("myController", function ($scope, $http,$log) {
 
-        $http.get("EmployeeService.asmx/GetAllEmployees")
+        $http({
+            methos: 'GET',
+            url: "EmployeeService.asmx/GetAllEmployees"
+        })
             .then(function (response) {
                 $scope.employees = response.data;
-            });
+                $log.info(response);
+            }, function (response) {
+                    $scope.error = response.data;
+                    $log.info(response);
+            }
+        );
     });
