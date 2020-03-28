@@ -6,21 +6,42 @@
     <script src="scripts/angular.min.js"></script>
     <script src="Scripts/Script.js"></script>
     <script src="Scripts/Filters.js"></script>
+    <script src="Scripts/stringService.js"></script>
     <link href="Styles.css" rel="stylesheet" />
 </head>
 <body ng-app="myModule">
     <div ng-controller="myController">
         Row to Display: <input type="number" step="1" min="0" max="5" ng-model="rowlimit">
-       Search: <input type="text" placeholder="search name and city" ng-model="searchText">
-     <hr />
-    Select a View:
-     <select ng-model="employeeView">
-         <option value="EmployeeTable.html">Table</option>
-         <option value="EmployeeList.html">List</option>
-     </select>
+        Search: <input type="text" placeholder="search name and city" ng-model="searchText">
+        <hr />
+        Select a View:
+        <select ng-model="employeeView">
+            <option value="EmployeeTable.html">Table</option>
+            <option value="EmployeeList.html">List</option>
+        </select>
         <br />
         <br />
-       <div ng-include="employeeView"></div>
+        <div ng-include="employeeView"></div>
+        <hr>
+        <div>
+            <table>
+                <tr>
+                    <td>Your String</td>
+                    <td><input type="text" ng-model="input" /> </td>
+                </tr>
+                <tr>
+                    <td>Result</td>
+                    <td><input type="text" ng-model="output" /></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type="button" ng-click="transformString(input)"
+                               value="Process String" />
+                    </td>
+                </tr>
+            </table>
+        </div>
     </div>
 </body>
 </html>

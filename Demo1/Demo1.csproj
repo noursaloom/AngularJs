@@ -73,6 +73,7 @@
     <Content Include="Scripts\angular.min.js" />
     <Content Include="Scripts\Filters.js" />
     <Content Include="Scripts\Script.js" />
+    <Content Include="Scripts\stringService.js" />
     <Content Include="Styles.css" />
     <Content Include="Web.config" />
   </ItemGroup>

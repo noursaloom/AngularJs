@@ -2,8 +2,12 @@
 
 var app = angular
     .module("myModule", [])
-    .controller("myController", function ($scope) {
-
+    .controller("myController", function ($scope, stringService) {
+      //  Create custom service
+        $scope.transformString = function (input) {
+            $scope.output = stringService.processString(input);
+        };
+   
         var employees = [
             { name: "Ben", dateOfbirth: new Date("November 23, 1980"), gender: 1, salary: 55000, city: "London" },
             { name: "Sara", dateOfbirth: new Date("May 05, 1970"), gender: 2, salary: 68000, city: "Chennai"  },
@@ -13,7 +17,7 @@ var app = angular
         ];
 
         $scope.employees = employees;
-        $scope.employeeView  = "EmployeeTable.html";
+        $scope.employeeView = "EmployeeTable.html";
         $scope.rowlimit = 5;
         $scope.sortColumn = "name";
         $scope.reverseSort = false;
@@ -48,4 +52,5 @@ var app = angular
 
             return false;
         }
+        
     });
