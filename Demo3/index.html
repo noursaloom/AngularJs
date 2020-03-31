@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html  xmlns="http://www.w3.org/1999/xhtml"  ng-app="Demo">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+    <script src="Scripts/script.js"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <base href="/" />
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <div class="w3-sidebar w3-light-grey w3-bar-block" style="width:25%">
+        <h3 class="w3-bar-item">Menu</h3>
+        <a href="home" class="w3-bar-item w3-button">Home</a>
+        <a href="courses" class="w3-bar-item w3-button">Courses</a>
+        <a href="students" class="w3-bar-item w3-button">Students</a>
+
+    </div>
+
+    <!-- Page Content -->
+    <div style="margin-left:25%">
+
+        <div class="w3-container w3-teal">
+            <h1>Header</h1>
+        </div>
+
+
+        <div class="w3-container ">
+            <ng-view></ng-view>
+
+        </div>
+
+    </div>
+
+</body>
+</html>
